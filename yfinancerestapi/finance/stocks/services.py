@@ -15,7 +15,7 @@ def init():
     db = finance_services.get_db()
     db.stocks.create_index('symbol')
 
-def rebuild_collection():
+def build_collection():
     def drop_collection(db):
         # Drop stocks collection
         db.stocks.drop()
@@ -78,9 +78,9 @@ def rebuild_collection():
     create_documents(db)
     #supplement_documents()  
 
-def reset_analysis():
+def unset_analysis():
     db = finance_services.get_db()
-    reset_stocks_analysis(db)
+    unset_stocks_analysis(db)
 
 def run_analysis():
     db = finance_services.get_db()
@@ -240,7 +240,7 @@ def supplement_documents():
             documents = []
         i += 1
 
-def reset_stocks_analysis(db):
+def unset_stocks_analysis(db):
     db.stocks.update_many({}, { '$unset': { 'fastMoving': '' } })
 
 init()
