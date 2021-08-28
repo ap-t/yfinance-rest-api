@@ -131,7 +131,7 @@ def get_fast_movers():
 
         if not(fast_movers_dict): continue
 
-        fast_movers_dict['name'] = document.get('securityName')
+        fast_movers_dict['name'] = document.get('name')
         fast_movers_dict['symbol'] = document.get('symbol')
 
         fast_movers_list.append(fast_movers_dict)
