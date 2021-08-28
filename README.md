@@ -4,16 +4,37 @@ yfinance REST API is a REST API built in Python using the Flask framework. yfina
 
 ## Getting Started
 
-Install and run the app
+Install dependencies
 ```sh
 cd /path/to/yfinance-rest-api
 pip install -r requirements.txt
+```
 
+Build stocks collection
+```sh
+export MONGO_URL=<YOUR_MONGO_CONNECTION_URL>
+python setup.py --build
+```
+
+Run app
+```sh
 export FLASK_APP=app
 export FLASK_ENV=development
 export MONGO_URL=<YOUR_MONGO_CONNECTION_URL>
 export NEWS_API_KEY<YOUR_NEWS_API_KEY>
 flask run
+```
+
+(Optional) Run stocks collection calculated analysis
+```sh
+export MONGO_URL=<YOUR_MONGO_CONNECTION_URL>
+python setup.py --run_analysis
+```
+
+(Optional) Unset any previous stocks collection calculated analysis
+```sh
+export MONGO_URL=<YOUR_MONGO_CONNECTION_URL>
+python setup.py --unset_analysis
 ```
 
 ## Usage
