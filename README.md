@@ -44,7 +44,7 @@ python setup.py --unset_analysis
 | Ping                  | GET        | /api/v1/system/ping                                              | Check if API is alive                   |
 | Tickers               | GET        | /api/v1/finance/stocks/tickers                                   | Get list of tickers                     |
 | Search                | GET        | /api/v1/finance/stocks/search?q=A&limit=25                       | Search for stocks by ticker             |
-| Most Popular          | GET        | /api/v1/finance/stocks/most-popular                              |  Get a list of the most popular stocks  |
+| Most Popular          | GET        | /api/v1/finance/stocks/most-popular                              | Get a list of the most popular stocks   |
 | Fast Moving           | GET        | /api/v1/finance/stocks/fast-moving?sort=percentage.asc&limit=100 | Get a list of the fastest moving stocks |
 | Info                  | GET        | /api/v1/finance/stocks/info?ticker=F                             | Get stock info                          |
 | Historical            | GET        | /api/v1/finance/stocks/historical?ticker=DIS&period=5d           | Get stock historical market data        |
@@ -63,7 +63,7 @@ python setup.py --unset_analysis
 | Options Expirations   | GET        | /api/v1/finance/stocks/options-expirations?ticker=NKE            | Get stock options expirations           |
 | Calls                 | GET        | /api/v1/finance/stocks/calls?ticker=CRM&date=2021-08-24          | Get stock calls                         | 
 | Puts                  | GET        | /api/v1/finance/stocks/puts?ticker=NFLX&date=2021-08-25          | Get stock puts                          |
-| News Everything       | GET        | /api/v1/finance/news?q=$MSFT                                     | Search millions of articles             |
+| News Everything       | GET        | /api/v1/finance/news/everything?q=$MSFT                          | Search millions of articles             |
 
 ## Built With
 
