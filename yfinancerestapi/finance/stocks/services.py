@@ -93,7 +93,7 @@ def get_stocks(query=None, limit=None):
         return not(symbol.startswith(q.lower()))
 
     db = finance_services.get_db()
-    filter = { 'symbol': { '$regex': '.*'+query+'.*', '$options': '-i'} } if query else {}
+    filter = { 'symbol': { '$regex': '.*'+query+'.*', '$options': 'i'} } if query else {}
     cursors = db.stocks.find(filter, STOCK_PROJECTION)
     stocks = list(cursors)
     stocks.sort(key = sort_startwith)
