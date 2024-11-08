@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>yFinance REST API</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="yFinance REST API documentation" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <h1>yFinance REST API</h1>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>HTTP Verb</th>
+          <th>API Endpoint</th>
+          <th>Purpose</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ping</td>
+          <td>GET</td>
+          <td><a href="/api/v1/system/ping">/api/v1/system/ping</a></td>
+          <td>Check if API is alive</td>
+        </tr>
+        <tr>
+          <td>Tickers</td>
+          <td>GET</td>
+          <td>
+            <a href="/api/v1/finance/stocks/tickers"
+              >/api/v1/finance/stocks/tickers</a
+            >
+          </td>
+          <td>Get list of tickers</td>
+        </tr>
+        <tr>
+          <td>Search</td>
+          <td>GET</td>
+          <td>
+            <a href="/api/v1/finance/stocks/search?q=A&limit=25"
+              >/api/v1/finance/stocks/search?q=A&limit=25</a
+            >
+          </td>
+          <td>Search for stocks by ticker</td>
+        </tr>
+        <tr>
+          <td>Most Popular</td>
+          <td>GET</td>
+          <td>
+            <a href="/api/v1/finance/stocks/most-popular"
+              >/api/v1/finance/stocks/most-popular</a
+            >
+          </td>
+          <td>Get a list of the most popular stocks</td>
+        </tr>
+        <tr>
+          <td>Fast Moving</td>
+          <td>GET</td>
+          <td>
+            <a
+              href="/api/v1/finance/stocks/fast-moving?sort=percentage.asc&limit=100"
+              >/api/v1/finance/stocks/fast-moving?sort=percentage.asc&limit=100</a
+            >
+          </td>
+          <td>Get a list of the fastest moving stocks</td>
+        </tr>
+        <tr>
+          <td>Info</td>
+          <td>GET</td>
+          <td>
+            <a href="/api/v1/finance/stocks/info?ticker=F"
+              >/api/v1/finance/stocks/info?ticker=F</a
+            >
+          </td>
+          <td>Get stock info</td>
+        </tr>
+        <tr>
+          <td>Historical</td>
+          <td>GET</td>
+          <td>
+            <a href="/api/v1/finance/stocks/historical?ticker=DIS&period=5d"
+              >/api/v1/finance/stocks/historical?ticker=DIS&period=5d</a
+            >
+          </td>
+          <td>Get stock historical market data</td>
+        </tr>
+        <tr>
+          <td>Dividends</td>
+          <td>GET</td>
+          <td>
+            <a href="/api/v1/finance/stocks/dividends?ticker=MSFT"
+              >/api/v1/finance/stocks/dividends?ticker=MSFT</a
+            >
+          </td>
+          <td>Get stock dividends</td>
+        </tr>
+        <tr>
+          <td>Splits</td>
+          <td>GET</td>
+          <td>
+            <a href="/api/v1/finance/stocks/splits?ticker=FB"
+              >/api/v1/finance/stocks/splits?ticker=FB</a
+            >
+          </td>
+          <td>Get stock splits</td>
+        </tr>
+        <tr>
+          <td>Financials</td>
+          <td>GET</td>
+          <td>
+            <a href="/api/v1/finance/stocks/financials?ticker=TSLA&term=1y"
+              >/api/v1/finance/stocks/financials?ticker=TSLA&term=1y</a
+            >
+          </td>
+          <td>Get stock financials</td>
+        </tr>
+        <tr>
+          <td>Major Holders</td>
+          <td>GET</td>
+          <td>
+            <a href="/api/v1/finance/stocks/major-holders?ticker=JNJ"
+              >/api/v1/finance/stocks/major-holders?ticker=JNJ</a
+            >
+          </td>
+          <td>Get stock major holders</td>
+        </tr>
+        <tr>
+          <td>Institutional Holders</td>
+          <td>GET</td>
+          <td>
+            <a href="/api/v1/finance/stocks/institutional-holders?ticker=V"
+              >/api/v1/finance/stocks/institutional-holders?ticker=V</a
+            >
+          </td>
+          <td>Get stock institutional holders</td>
+        </tr>
+        <tr>
+          <td>Balance Sheet</td>
+          <td>GET</td>
+          <td>
+            <a
+              href="/api/v1/finance/stocks/balance-sheet?ticker=AAPL&term=quarter"
+              >/api/v1/finance/stocks/balance-sheet?ticker=AAPL&term=quarter</a
+            >
+          </td>
+          <td>Get stock balance sheet</td>
+        </tr>
+        <tr>
+          <td>Cashflow</td>
+          <td>GET</td>
+          <td>
+            <a href="/api/v1/finance/stocks/cashflow?ticker=GOOG&term=quarter"
+              >/api/v1/finance/stocks/cashflow?ticker=GOOG&term=quarter</a
+            >
+          </td>
+          <td>Get stock cashflow</td>
+        </tr>
+        <tr>
+          <td>Earnings</td>
+          <td>GET</td>
+          <td>
+            <a href="/api/v1/finance/stocks/earnings?ticker=AMZN&term=quarter"
+              >/api/v1/finance/stocks/earnings?ticker=AMZN&term=quarter</a
+            >
+          </td>
+          <td>Get stock earnings</td>
+        </tr>
+        <tr>
+          <td>Sustainability</td>
+          <td>GET</td>
+          <td>
+            <a href="/api/v1/finance/stocks/sustainability?ticker=WMT"
+              >/api/v1/finance/stocks/sustainability?ticker=WMT</a
+            >
+          </td>
+          <td>Get stock sustainability</td>
+        </tr>
+        <tr>
+          <td>Recommendations</td>
+          <td>GET</td>
+          <td>
+            <a href="/api/v1/finance/stocks/recommendations?ticker=BAC"
+              >/api/v1/finance/stocks/recommendations?ticker=BAC</a
+            >
+          </td>
+          <td>Get stock recommendations</td>
+        </tr>
+        <tr>
+          <td>Calendar</td>
+          <td>GET</td>
+          <td>
+            <a href="/api/v1/finance/stocks/calendar?ticker=MA"
+              >/api/v1/finance/stocks/calendar?ticker=MA</a
+            >
+          </td>
+          <td>Get stock calendar</td>
+        </tr>
+        <tr>
+          <td>ISIN</td>
+          <td>GET</td>
+          <td>
+            <a href="/api/v1/finance/stocks/isin?ticker=HD"
+              >/api/v1/finance/stocks/isin?ticker=HD</a
+            >
+          </td>
+          <td>Get stock isin</td>
+        </tr>
+        <tr>
+          <td>Options Expirations</td>
+          <td>GET</td>
+          <td>
+            <a href="/api/v1/finance/stocks/options-expirations?ticker=NKE"
+              >/api/v1/finance/stocks/options-expirations?ticker=NKE</a
+            >
+          </td>
+          <td>Get stock options expirations</td>
+        </tr>
+        <tr>
+          <td>Calls</td>
+          <td>GET</td>
+          <td>
+            <a href="/api/v1/finance/stocks/calls?ticker=CRM&date=2021-08-24"
+              >/api/v1/finance/stocks/calls?ticker=CRM&date=2021-08-24</a
+            >
+          </td>
+          <td>Get stock calls</td>
+        </tr>
+        <tr>
+          <td>Puts</td>
+          <td>GET</td>
+          <td>
+            <a href="/api/v1/finance/stocks/puts?ticker=NFLX&date=2021-08-25"
+              >/api/v1/finance/stocks/puts?ticker=NFLX&date=2021-08-25</a
+            >
+          </td>
+          <td>Get stock puts</td>
+        </tr>
+        <tr>
+          <td>News Everything</td>
+          <td>GET</td>
+          <td>
+            <a href="/api/v1/finance/news/everything?q=$MSFT"
+              >/api/v1/finance/news/everything?q=$MSFT</a
+            >
+          </td>
+          <td>Search millions of articles</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      <a href="https://github.com/ap-t/yfinance-rest-api"
+        >https://github.com/ap-t/yfinance-rest-api</a
+      >
+    </p>
+  </body>
+</html>

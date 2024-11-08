@@ -1,0 +1,7 @@
+.api-table {
+    border-spacing: 8px;
+}
+
+.api-table th {
+    text-align: start;
+}
