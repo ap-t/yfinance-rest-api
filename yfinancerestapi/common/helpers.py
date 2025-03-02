@@ -1,6 +1,8 @@
 import pandas as pd
 import datetime
+from flask import Response
 from bson import json_util
+import json
 
 def _instance_to_str(index):
     if isinstance(index, datetime.datetime):
@@ -58,6 +60,12 @@ def lookup_fn(df, key_row, key_col):
         return 0
 
 def parse_json(data):
-    return json_util.dumps(data, default=json_util.default)
+    try:
+        json_data = json_util.dumps(data, default=json_util.default)
+        json.loads(json_data)
+        return Response(json_data, content_type='application/json')
+    except (TypeError, ValueError) as e:
+        error_message = json.dumps({"error": str(e)})
+        return Response(error_message, content_type='application/json', status=400)
 
 
