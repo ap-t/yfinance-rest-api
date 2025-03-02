@@ -1,6 +1,6 @@
-Flask==3.0.3
-Flask_Cors==3.0.10
-newsapi_python==0.2.6
-pandas==2.2.2
-pymongo==3.11.2
-yfinance==0.2.38
+Flask==3.1.0
+flask_cors==5.0.1
+newsapi_python==0.2.7
+pandas==2.2.3
+pymongo==3.13.0
+yfinance==0.2.54
