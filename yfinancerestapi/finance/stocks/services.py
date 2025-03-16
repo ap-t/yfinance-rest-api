@@ -189,10 +189,11 @@ def analyze_stocks_collection(db):
 
     i = 0
     thread_count = 0
+    total_count = db.stocks.count_documents({})
     documents = []
-    while i < cursors.count():
+    while i < total_count:
         documents.append(cursors[i])
-        if (i+1) % 600 == 0 or i == (cursors.count()-1):
+        if (i+1) % 600 == 0 or i == (total_count-1):
             thread_count = thread_count + 1
             logging.info('Thread ' + str(thread_count) + ' Started')
             analysis_thread = threading.Thread(target=start_stock_documents_analysis, args=(documents,))
@@ -229,10 +230,11 @@ def supplement_documents():
 
     i = 0
     thread_count = 0
+    total_count = db.stocks.count_documents({})
     documents = []
-    while i < cursors.count():
+    while i < total_count:
         documents.append(cursors[i])
-        if (i+1) % 600 == 0 or i == (cursors.count()-1):
+        if (i+1) % 600 == 0 or i == (total_count-1):
             thread_count = thread_count + 1
             logging.info('Thread ' + str(thread_count) + ' Started')
             supplement_thread = threading.Thread(target=start_stock_documents_supplment, args=(documents,))
