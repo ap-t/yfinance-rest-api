@@ -4,3 +4,4 @@ newsapi_python==0.2.7
 pandas==2.2.3
 pymongo==4.12.1
 yfinance==0.2.61
+tqdm==4.67.1

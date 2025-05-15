@@ -8,6 +8,7 @@ import yfinancerestapi.finance.services as finance_services
 from datetime import date
 from pymongo import MongoClient
 from pprint import pprint
+from tqdm import tqdm
 
 STOCK_PROJECTION = { '_id': False , 'fastMoving': False }
 
@@ -43,9 +44,6 @@ def build_collection():
             #Step 3: Insert business object directly into MongoDB via isnert_one
             result=db.stocks.insert_one(stock)
 
-            #Step 4: Print to the console the ObjectID of the new document
-            print('Created as {0}'.format(result.inserted_id))
-
         def create_document(columns, values):
             stock = {}
             for i, column in enumerate(columns):
@@ -66,7 +64,8 @@ def build_collection():
         def for_each_line(file_path, callback):
             df = pd.read_fwf(file_path)
 
-            for label, content in df.iterrows():
+            total_rows = len(df)
+            for label, content in tqdm(df.iterrows(), desc="Processing lines", total=total_rows):
                 for label, line in content.items():
                     callback(label, line)
         
