@@ -3,5 +3,5 @@ flask_cors==6.0.1
 newsapi_python==0.2.7
 pandas==2.3.3
 pymongo==4.15.4
-yfinance==0.2.66
+yfinance==1.0
 tqdm==4.67.1
